@@ -34,7 +34,8 @@ class Statistics:
 
         result = []
         i = 0
-        while i <= how_many:
+        while i < how_many:
+        # bugi tässä while i <= how_many:
             result.append(sorted_players[i])
             i += 1
 
