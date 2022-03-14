@@ -41,5 +41,13 @@ class TestStatistics(unittest.TestCase):
         self.assertEqual(self.statistics.team("ABC"), [])
 
     def test_top_scored_fetches_right_amount_of_players(self):
-        #järjestää pelaajat oikein pisteiden mukaan
+        #palautettu pelaajamäärä on haetun mukainen
         self.assertEqual(len(self.statistics.top_scorers(2)), 2)
+
+    def test_top_scored_players_in_right_order(self):
+        ranking = self.statistics.top_scorers(5)
+        self.assertEqual(ranking[0].name, "Gretzky")
+        self.assertEqual(ranking[1].name, "Lemieux")
+        self.assertEqual(ranking[2].name, "Yzerman")
+        self.assertEqual(ranking[3].name, "Kurri")
+        self.assertEqual(ranking[4].name, "Semenko")
