@@ -1,4 +1,5 @@
 from entities.user import User
+import re
 from repositories.user_repository import (
     user_repository as default_user_repository
 )
@@ -41,6 +42,14 @@ class UserService:
             raise UserInputError("Username and password are required")
 
         # toteuta loput tarkastukset tänne ja nosta virhe virhetilanteissa
+       
+        if len(username) < 3:
+            raise UserInputError("Username should be longer than 2 characters")
 
+        if len(password) < 8 or re.match("^[a-z]*$", password):
+            raise UserInputError("Password should be at least 8 characters and also contains other characters than letters")
+
+        if not password.__eq__(password_confirmation):
+            raise UserInputError("Password and password confirmation are different")
 
 user_service = UserService()
