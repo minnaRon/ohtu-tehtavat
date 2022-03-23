@@ -33,7 +33,7 @@ class Ostoskori:
                 self._poista_ostos_jos_tuotteen_lkm_nolla(ostos)
 
     def tyhjenna(self):
-        pass
+        self.__kori = []
         # tyhjentää ostoskorin
 
     def ostokset(self):
