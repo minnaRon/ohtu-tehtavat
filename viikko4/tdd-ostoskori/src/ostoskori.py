@@ -19,6 +19,10 @@ class Ostoskori:
 
     def lisaa_tuote(self, lisattava: Tuote):
         # lisää tuotteen
+        for ostos in self.__kori:
+            if ostos.tuotteen_nimi() == lisattava.nimi():
+                ostos.muuta_lukumaaraa(1)
+                return
         self.__kori.append(Ostos(lisattava))
 
     def poista_tuote(self, poistettava: Tuote):
